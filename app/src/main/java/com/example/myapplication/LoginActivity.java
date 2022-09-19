@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText editText, editPassword;
 
 
-    static String login = "Jaroslpa@yandex.ru";
+    static String login = "jaroslpa@yandex.ru";
     static String password = "qwe";
 
 
