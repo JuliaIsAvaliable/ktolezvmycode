@@ -22,8 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText editText, editPassword;
 
 
-    static String login = "Jaroslpa@yandex.ru";
-    static String password = "qwe";
+    static String login = "01";
+    static String password = "1";
 
 
 
@@ -50,6 +50,9 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                    Intent vac = new Intent(LoginActivity.this, UserActivity.class);
+                    startActivity(vac);
+
 
                 String Email = editText.getText().toString();
                 String add_password = editPassword.getText().toString();
@@ -58,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if((Email.equals(login)) && (add_password.equals(password))){
                     toast = Toast.makeText(getApplicationContext(),
-                            "Вы в системе",
+                            "Авторизация успешна",
                             Toast.LENGTH_SHORT);
                 }
                 else{
