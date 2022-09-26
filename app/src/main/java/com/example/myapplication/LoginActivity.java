@@ -54,23 +54,15 @@ public class LoginActivity extends AppCompatActivity {
                 String Email = editText.getText().toString();
                 String add_password = editPassword.getText().toString();
 
-                Toast toast;
+                BDWhelp mdb = new BDWhelp(LoginActivity.this);
+                mdb.search(Email,add_password);
 
-                if((Email.equals(login)) && (add_password.equals(password))){
-                    toast = Toast.makeText(getApplicationContext(),
-                            "Вы в системе",
-                            Toast.LENGTH_SHORT);
-                }
-                else{
-                    toast = Toast.makeText(getApplicationContext(),
-                            "Логин или пароль не подходят",
-                            Toast.LENGTH_SHORT);
-                }
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+
 
             }
         });
+
+
 
 
     }

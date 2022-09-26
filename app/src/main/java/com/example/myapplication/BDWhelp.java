@@ -2,11 +2,14 @@ package com.example.myapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import java.lang.reflect.Array;
 
 public class BDWhelp extends SQLiteOpenHelper{
 
@@ -16,7 +19,7 @@ public class BDWhelp extends SQLiteOpenHelper{
 
     private static final String Table_Name = "User";
     private static final String ID = "id";
-    private static final String Column_Login = "login";
+    private static String Column_Login = "login";
     private static final String Column_Password = "password";
     private static final String Column_Phone = "phone";
 
@@ -68,8 +71,16 @@ public class BDWhelp extends SQLiteOpenHelper{
     {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        //String query = "Select * from " + Table_Name +" Where" +  +
+        Cursor cursor = db.rawQuery("Select * from " + Table_Name + " where " + Column_Login + " = " + log + " and " + Column_Password + " = " + password, null);
+        /*if(cursor.getCount() == 0){
+            Toast.makeText(context,"Failed", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context,"Ваш аккаунт есть", Toast.LENGTH_SHORT).show();
+        }*/
+
     }
+
 
 
 }
