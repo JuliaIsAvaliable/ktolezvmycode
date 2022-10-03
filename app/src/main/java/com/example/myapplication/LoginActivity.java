@@ -16,22 +16,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
-
+DBhelper dBhelper;
     ImageButton myImageButton;
-    Button loginButton;
+    Button loginButton;// = findViewById(R.id.buttonLog);
     EditText editText, editPassword;
 
-
-    static String login = "01";
-    static String password = "1";
-
-
-
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        dBhelper = new DBhelper(this);
 
         myImageButton = (ImageButton) findViewById(R.id.imageButtonBac);
 
@@ -43,34 +38,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        loginButton = findViewById(R.id.buttonLog);
         editText = (EditText) findViewById(R.id.editTextTextEmailAddress);
         editPassword = (EditText) findViewById(R.id.editTextTextPassword);
-
+        loginButton = (Button) findViewById((R.id.buttonLog));
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent vac = new Intent(LoginActivity.this, UserActivity.class);
-                    startActivity(vac);
 
-
-                String Email = editText.getText().toString();
-                String add_password = editPassword.getText().toString();
-
-                Toast toast;
-
-                if((Email.equals(login)) && (add_password.equals(password))){
-                    toast = Toast.makeText(getApplicationContext(),
-                            "Авторизация успешна",
-                            Toast.LENGTH_SHORT);
-                }
-                else{
-                    toast = Toast.makeText(getApplicationContext(),
-                            "Логин или пароль не подходят",
-                            Toast.LENGTH_SHORT);
-                }
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
 
             }
         });
