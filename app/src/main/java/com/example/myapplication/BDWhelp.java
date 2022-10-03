@@ -71,13 +71,13 @@ public class BDWhelp extends SQLiteOpenHelper{
     {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("Select * from " + Table_Name + " where " + Column_Login + " = " + log + " and " + Column_Password + " = " + password, null);
-        /*if(cursor.getCount() == 0){
+        Cursor cursor = db.rawQuery("Select * from " + Table_Name + " where " + Column_Login + " =? and " + Column_Password + " =?", new String[]{log, password});
+        if(cursor.getCount() == 0){
             Toast.makeText(context,"Failed", Toast.LENGTH_SHORT).show();
         }
         else{
             Toast.makeText(context,"Ваш аккаунт есть", Toast.LENGTH_SHORT).show();
-        }*/
+        }
 
     }
 
